@@ -120,6 +120,14 @@
 											<figure>	
 												<img src='data:image/jpeg;base64,".base64_encode( $row['picture'] )."' width='200' height='200'>
 											<figcaption>".$row['name']." - ".$row['caption']."</figcaption></figure>";
+									if(!empty($_FILES['selfie']['tmp_name']))
+									{
+										$selfie=file_get_contents($_FILES['selfie']['tmp_name']);
+										echo "
+											<figure>	
+												<img src='data:image/jpeg;base64,".base64_encode( $selfie )."' width='200' height='200'>
+											<figcaption>".$row['name']." - selfie</figcaption></figure>";
+									}
 								}
 								else
 								{
@@ -147,6 +155,11 @@
 					Choose a profile picture:
 				</label>
 				<input type="file" id="picture" name="picture" accept="image/png, image/jpeg, image/gif, image/jpg">
+			</div>
+
+			<div>
+				<label for="selfie">Upload a photo of yourself:</label>
+				<input type="file" id="selfie" name="selfie" capture="user" accept="image/*">
 			</div>
 
 			<div style="margin-bottom:150px;">
