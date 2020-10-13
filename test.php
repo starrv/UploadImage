@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<style type="text/css">
+
 			body
 			{
 				font-family: serif;
@@ -52,7 +53,7 @@
 				border-radius: 5px;
 			}
 
-			#picName, img
+			figure
 			{
 				margin-left: 50px;
 			}
@@ -116,10 +117,9 @@
 								{
 									$row=$result->fetch_assoc();
 									echo "
-											<h3 class='picName'>".$row['name']."</h3>
 											<figure>	
 												<img src='data:image/jpeg;base64,".base64_encode( $row['picture'] )."' width='200' height='200'>
-											<figcaption>".$row['caption']."</figcaption></figure>";
+											<figcaption>".$row['name']." - ".$row['caption']."</figcaption></figure>";
 								}
 								else
 								{
